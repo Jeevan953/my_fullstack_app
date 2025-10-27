@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | My Fullstack App</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+        }
+        a {
+            text-decoration: none;
+            background: #fff;
+            color: #0072ff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin: 10px;
+            display: inline-block;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+        a:hover {
+            background: #0072ff;
+            color: #fff;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if username %}
+            <h1>Welcome back, {{ username }} 👋</h1>
+            <p>Glad to see you again!</p>
+            <a href="{{ url_for('welcome') }}">Go to Welcome Page</a>
+            <a href="{{ url_for('profile') }}">View Profile</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <h1>Welcome to My Fullstack App 🚀</h1>
+            <p>Explore Flask-based login, registration, and profile features.</p>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        {% endif %}
+    </div>
+</body>
+</html>
